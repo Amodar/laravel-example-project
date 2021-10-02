@@ -46,8 +46,8 @@ spec:
             - "--force"
       containers:
         - name: nginx
-          imagePullPolicy: Never
           image: laravel-example-project-nginx:latest
+          imagePullPolicy: Never
           resources:
             limits:
               cpu: 500m
@@ -55,6 +55,7 @@ spec:
           ports:
             - containerPort: 80
         - name: fpm
+          image: laravel-example-project-fpm:latest
           imagePullPolicy: Never
           envFrom:
             - configMapRef:
@@ -76,6 +77,5 @@ spec:
             - name: testing
               mountPath: /var/www/html/storage/framework/testing
           resources: {}
-          image: laravel-example-project-fpm:latest
           ports:
             - containerPort: 9000
