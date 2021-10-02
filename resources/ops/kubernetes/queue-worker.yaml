@@ -20,6 +20,6 @@ spec:
         - name: fpm
           imagePullPolicy: Never
           resources: {}
-          image: nginx
+          image: laravel-example-project-nginx:latest
           ports:
             - containerPort: 9000
